@@ -1,0 +1,31 @@
+﻿@model MasterDetails.Models.Region
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details @Model.Nom Region</h2>
+
+<div>
+    <h4>@*Region*@</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")*@
+
+    <a class="btn btn-success" href="@Url.Action("Edit","Regions",new { id = Model.id })">Edit</a> |
+    <a class="btn btn-primary" href="@Url.Action("Index","Regions")">Back</a>
+
+</p>

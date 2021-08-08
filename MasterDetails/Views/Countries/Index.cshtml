@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MasterDetails.Models.Country>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Countries</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Region.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortName)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+
+            <a class="btn btn-primary" href="@Url.Action("Edit","Countries", new { id=item.id })">Edit</a> |
+            <a class="btn btn-info" href="@Url.Action("Details","Countries", new { id=item.id })">Details</a> |
+            <a class="btn btn-danger" href="@Url.Action("Delete","Countries", new { id=item.id })">Delete</a>
+
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create","Countries")">Add new Country</a>
+</p>

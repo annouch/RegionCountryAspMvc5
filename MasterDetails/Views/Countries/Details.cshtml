@@ -1,0 +1,45 @@
+﻿@model MasterDetails.Models.Country
+
+@{
+    ViewBag.Title = "/*Details*/";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@*Details*@</h2>
+
+<div>
+    <h4>@Model.Nom Details </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nom)*@
+            <label>Country</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ShortName)*@
+            <label>Short Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Region.Nom)*@
+            <label>Region</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.Nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-success" href="@Url.Action("Edit", "Countries", new { id = Model.id })">Edit</a> |
+    <a class="btn btn-primary" href="@Url.Action("Index", "Countries")">Back</a>
+</p>

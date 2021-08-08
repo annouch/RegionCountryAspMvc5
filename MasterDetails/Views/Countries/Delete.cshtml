@@ -1,0 +1,51 @@
+﻿@model MasterDetails.Models.Country
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@*Delete*@</h2>
+
+<h3>Are you sure you want to delete @Model.Nom Country ?!</h3>
+<div>
+    <h4>@*Country*@</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nom)*@
+            <label>Country</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ShortName)*@
+            <label>Short Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Region.Nom)*@
+            <label>Region</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.Nom)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a class="btn btn-primary" href="@Url.Action("Index","Countries")">Back</a>
+        </div>
+    }
+</div>

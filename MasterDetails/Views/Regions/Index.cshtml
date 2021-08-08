@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MasterDetails.Models.Region>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des Regions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Nom)*@
+            Regions
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+
+            <a class="btn btn-success" href="@Url.Action("Edit","Regions",new { id=item.id })">Edit</a> |
+            <a class="btn btn-info" href="@Url.Action("Details","Regions",new { id=item.id })">Details</a> |
+            <a class="btn btn-danger" href="@Url.Action("Delete","Regions",new { id=item.id })">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create","Regions")">Add new Region</a>
+</p>
